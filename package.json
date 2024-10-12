@@ -1,0 +1,22 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "ростая онлайн-версия игры 'Дурак' на чистом JavaScript с использованием WebSocket.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node index.js"
+  },
+  "keywords": [
+    "дурак",
+    "онлайн",
+    "websocket",
+    "javascript"
+  ],
+  "author": "lizka sokha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "ws": "^8.18.0"
+  }
+}
