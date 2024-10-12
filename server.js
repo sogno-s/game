@@ -41,7 +41,7 @@ wss.on('connection', (ws) => {
         ws.close()
         return
     }
-
+    console.log('подключение произошо')
     const player = {ws, hand: []};
     players.push(player)
 
@@ -49,8 +49,14 @@ wss.on('connection', (ws) => {
         createDeck()
         dealCards()
 
-        players.forEach(player => {
-            player.ws.send(JSON.stringify({type: 'start', hand: player.hand}))
+        console.log(`Sending to player :`);
+
+
+        players.forEach((player, index) => {
+            const opponentHand = new Array(6).fill({suit: 'unknown', rank: 'unknown'})
+            console.log(`Sending to player ${index}:`, { type: 'start', hand: player.hand, opponentHand });
+            player.ws.send(JSON.stringify({type: 'start', hand: player.hand, opponentHand}))
+
         })
 
         ws.on('close', () => {
